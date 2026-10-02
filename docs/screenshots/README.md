@@ -126,13 +126,35 @@ After testing, document results:
 
 ### Results
 
+## Test Execution: 2026-10-02
+
+### Environment
+- Base URL: https://api-learning.nisalgunawardhana.com
+- Postman Version: v11
+- Node Version: v20.x
+
+### Results
 | Endpoint | Method | Expected | Actual | Status | Screenshot |
 |----------|--------|----------|--------|--------|------------|
 | / | GET | 200 | 200 | ✅ | 01-root-endpoint.png |
 | /api/users | GET | 200 | 200 | ✅ | 02-get-all-users.png |
 | /api/users/:id | GET | 200 | 200 | ✅ | 03-get-user-by-id.png |
-| ... | ... | ... | ... | ... | ... |
+| /api/users/9999 | GET | 404 | 404 | ✅ | 04-get-user-404.png |
+| /api/users | POST | 201 | 201 | ✅ | 05-create-user-success.png |
+| /api/users | POST (invalid email) | 422 | 422 | ✅ | 06-create-user-validation-error.png |
+| /api/users | POST (duplicate) | 409 | 409 | ✅ | 07-create-user-duplicate-email.png |
+| /api/users | POST (missing fields)| 400 | 400 | ✅ | 08-create-user-missing-fields.png |
+| /api/users/:id | PUT | 200 | 200 | ✅ | 09-update-user-success.png |
+| /api/users/9999 | PUT | 404 | 404 | ✅ | 10-update-user-not-found.png |
+| /api/users/:id | PUT (validation) | 422 | 422 | ✅ | 11-update-user-validation.png |
+| /api/users/:id | DELETE | 200 | 200 | ✅ | 12-delete-user-success.png |
+| /api/users/9999 | DELETE | 404 | 404 | ✅ | 13-delete-user-not-found.png |
 
+### Issues Found
+- None
+
+### Notes
+- All endpoints tested and passed successfully.
 ### Issues Found
 - None / List any issues
 
